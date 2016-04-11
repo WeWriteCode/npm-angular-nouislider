@@ -1,0 +1,27 @@
+{
+  "name": "npm-angular-nouislider",
+  "version": "1.0.0",
+  "description": "noUiSlider wrapped in an Angular directive made nice for node projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeWriteCode/npm-angular-nouislider.git"
+  },
+  "keywords": [
+    "nouislider",
+    "angular"
+  ],
+  "author": "We Write Code",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WeWriteCode/npm-angular-nouislider/issues"
+  },
+  "homepage": "https://github.com/WeWriteCode/npm-angular-nouislider#readme",
+  "dependencies": {
+    "angular": "1.5.0",
+    "nouislider": "8.3.0"
+  }
+}
