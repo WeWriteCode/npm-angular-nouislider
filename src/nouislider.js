@@ -25,18 +25,18 @@ var directive = function () {
                         scope.ngFrom || scope.start,
                         scope.ngTo || scope.end
                     ],
-                    step: parseFloat(scope.step || 1),
+                    step: parseInt(scope.step || 1),
                     connect: true,
-                    margin: parseFloat(scope.margin || 0),
+                    margin: parseInt(scope.margin || 0),
                     range: {
-                        min: [parseFloat(scope.start)],
-                        max: [parseFloat(scope.end)]
+                        min: [parseInt(scope.start)],
+                        max: [parseInt(scope.end)]
                     }
                 });
                 slider.noUiSlider.on('slide', function (values) {
                     scope.$apply(function () {
-                        scope.ngFrom = values[0];
-                        scope.ngTo = values[1];
+                        scope.ngFrom = parseInt(values[0]);
+                        scope.ngTo = parseInt(values[1]);
                     });
                 });
                 scope.$watch('ngFrom', function (newVal) {
@@ -48,15 +48,15 @@ var directive = function () {
             } else {
                 noUiSlider.create(slider, {
                     start: [scope.ngModel || scope.start],
-                    step: parseFloat(scope.step || 1),
+                    step: parseInt(scope.step || 1),
                     range: {
-                        min: [parseFloat(scope.start)],
-                        max: [parseFloat(scope.end)]
+                        min: [parseInt(scope.start)],
+                        max: [parseInt(scope.end)]
                     }
                 });
                 slider.noUiSlider.on('slide', function (values, handle) {
                     scope.$apply(function () {
-                        scope.ngModel = values[handle];
+                        scope.ngModel = parseInt(values[handle]);
                     });
                 });
                 scope.$watch('ngModel', function (newVal) {
