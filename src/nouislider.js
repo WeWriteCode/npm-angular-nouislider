@@ -14,7 +14,8 @@ var directive = function () {
             margin: '@',
             ngModel: '=',
             ngFrom: '=',
-            ngTo: '='
+            ngTo: '=',
+            tooltips: '='
         },
         link: function (scope, element) {
             var slider = element[0];
@@ -31,7 +32,8 @@ var directive = function () {
                     range: {
                         min: [parseInt(scope.start)],
                         max: [parseInt(scope.end)]
-                    }
+                    },
+                    tooltips: scope.tooltips || false
                 });
                 slider.noUiSlider.on('slide', function (values) {
                     scope.$apply(function () {
@@ -52,7 +54,8 @@ var directive = function () {
                     range: {
                         min: [parseInt(scope.start)],
                         max: [parseInt(scope.end)]
-                    }
+                    },
+                    tooltips: scope.tooltips || false
                 });
                 slider.noUiSlider.on('slide', function (values, handle) {
                     scope.$apply(function () {
