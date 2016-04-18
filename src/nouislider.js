@@ -20,11 +20,11 @@ var directive = function () {
         link: function (scope, element) {
             var slider = element[0];
 
-            if (scope.ngFrom && scope.ngTo) {
+            if (scope.ngFrom !== undefined && scope.ngTo !== undefined) {
                 noUiSlider.create(slider, {
                     start: [
-                        scope.ngFrom || scope.start,
-                        scope.ngTo || scope.end
+                        scope.ngFrom !== null ? scope.ngFrom : scope.start,
+                        scope.ngTo !== null ? scope.ngTo : scope.end
                     ],
                     step: parseInt(scope.step || 1),
                     connect: true,
@@ -49,7 +49,7 @@ var directive = function () {
                 });
             } else {
                 noUiSlider.create(slider, {
-                    start: [scope.ngModel || scope.start],
+                    start: [scope.ngModel !== undefined && scope.ngModel !== null ? scope.ngModel : scope.start],
                     step: parseInt(scope.step || 1),
                     range: {
                         min: [parseInt(scope.start)],
