@@ -26,19 +26,19 @@ var directive = function () {
                         scope.ngFrom !== null ? scope.ngFrom : scope.start,
                         scope.ngTo !== null ? scope.ngTo : scope.end
                     ],
-                    step: parseInt(scope.step || 1),
+                    step: parseFloat(scope.step || 1),
                     connect: true,
-                    margin: parseInt(scope.margin || 0),
+                    margin: parseFloat(scope.margin || 0),
                     range: {
-                        min: [parseInt(scope.start)],
-                        max: [parseInt(scope.end)]
+                        min: [parseFloat(scope.start)],
+                        max: [parseFloat(scope.end)]
                     },
                     tooltips: scope.tooltips || false
                 });
                 slider.noUiSlider.on('slide', function (values) {
                     scope.$apply(function () {
-                        scope.ngFrom = parseInt(values[0]);
-                        scope.ngTo = parseInt(values[1]);
+                        scope.ngFrom = parseFloat(values[0]);
+                        scope.ngTo = parseFloat(values[1]);
                     });
                 });
                 scope.$watch('ngFrom', function (newVal) {
@@ -50,16 +50,16 @@ var directive = function () {
             } else {
                 noUiSlider.create(slider, {
                     start: [scope.ngModel !== undefined && scope.ngModel !== null ? scope.ngModel : scope.start],
-                    step: parseInt(scope.step || 1),
+                    step: parseFloat(scope.step || 1),
                     range: {
-                        min: [parseInt(scope.start)],
-                        max: [parseInt(scope.end)]
+                        min: [parseFloat(scope.start)],
+                        max: [parseFloat(scope.end)]
                     },
                     tooltips: scope.tooltips || false
                 });
                 slider.noUiSlider.on('slide', function (values, handle) {
                     scope.$apply(function () {
-                        scope.ngModel = parseInt(values[handle]);
+                        scope.ngModel = parseFloat(values[handle]);
                     });
                 });
                 scope.$watch('ngModel', function (newVal) {
